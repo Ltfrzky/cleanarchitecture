@@ -5,6 +5,7 @@ import com.lutfi.cleanarchitecture.data.api.request.Login
 import com.lutfi.cleanarchitecture.data.model.News
 import com.lutfi.cleanarchitecture.data.model.User
 import retrofit2.Call
+import retrofit2.Response
 import java.util.*
 
 /**
@@ -19,7 +20,7 @@ class ApiConnection {
             return HeaderInterceptor(headers)
         }
 
-        private fun login(loginRequest: Login): Call<BaseResponse<User>> {
+        private suspend fun login(loginRequest: Login): Response<BaseResponse<User>> {
             return ApiService.createService(
                 ApiInterface::class.java,
                 ApiClient.create()

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CleanArchitecture</string>
+    <string name="hint_username">Email/Phone Number</string>
+    <string name="hint_password">Password</string>
+    <string name="condesc_logo">Logo</string>
+    <string name="btn_login">Login</string>
+    <string name="nfc">NFC</string>
 </resources>
