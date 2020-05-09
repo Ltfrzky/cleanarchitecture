@@ -1,7 +1,9 @@
 package com.lutfi.cleanarchitecture.data.api.libs
 
 import com.lutfi.cleanarchitecture.base.model.BaseResponse
+import com.lutfi.cleanarchitecture.data.api.request.Login
 import com.lutfi.cleanarchitecture.data.model.News
+import com.lutfi.cleanarchitecture.data.model.User
 import retrofit2.Call
 import java.util.*
 
@@ -15,6 +17,13 @@ class ApiConnection {
             val headers = HashMap<String, String>()
             headers["Authorization"] = token
             return HeaderInterceptor(headers)
+        }
+
+        private fun login(loginRequest: Login): Call<BaseResponse<User>> {
+            return ApiService.createService(
+                ApiInterface::class.java,
+                ApiClient.create()
+            ).login(loginRequest)
         }
 
         private fun getNews(token: String): Call<BaseResponse<List<News>>> {
